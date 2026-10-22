@@ -1,0 +1,4 @@
+[[IgnoredVulns]]
+id = "GHSA-vfj7-8cjw-p6xm"
+ignoreUntil = 2027-01-22
+reason = "braces <=3.0.3 has no fixed release; build-time chokidar/micromatch only."
