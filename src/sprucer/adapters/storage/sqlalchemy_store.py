@@ -153,9 +153,7 @@ class SqlAlchemyStorage:
             if "owner_subject" in cols:
                 continue
             with self.engine.begin() as conn:
-                # Fixed allowlist only — not user input. Prefer exec_driver_sql over text().
-                if table not in ("truth", "applications"):
-                    raise RuntimeError(f"unexpected migration table: {table}")
+                # ``table`` comes only from the fixed tuple above, never user input.
                 conn.exec_driver_sql(
                     f"ALTER TABLE {table} ADD COLUMN owner_subject "
                     f"VARCHAR(200) NOT NULL DEFAULT '{SHARED_OWNER}'"

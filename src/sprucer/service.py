@@ -1251,7 +1251,7 @@ class CareerService:
             industries = career_fit.get("industries") if isinstance(career_fit.get("industries"), list) else []
             if industries:
                 names = [
-                    str(i.get("name") or i)
+                    str(i.get("name") or i) if isinstance(i, dict) else str(i)
                     for i in industries
                     if isinstance(i, (dict, str))
                 ]
@@ -1259,7 +1259,7 @@ class CareerService:
             titles = career_fit.get("titles") if isinstance(career_fit.get("titles"), list) else []
             if titles:
                 names = [
-                    str(t.get("name") or t)
+                    str(t.get("name") or t) if isinstance(t, dict) else str(t)
                     for t in titles
                     if isinstance(t, (dict, str))
                 ]
@@ -1297,15 +1297,11 @@ class CareerService:
             pass
         fence = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, flags=re.DOTALL)
         if fence:
-            data = json.loads(fence.group(1))
-            if isinstance(data, dict):
-                return data
+            return json.loads(fence.group(1))
         start = text.find("{")
         end = text.rfind("}")
         if start >= 0 and end > start:
-            data = json.loads(text[start : end + 1])
-            if isinstance(data, dict):
-                return data
+            return json.loads(text[start : end + 1])
         raise RuntimeError("LLM career-fit response was not valid JSON")
 
     @staticmethod
