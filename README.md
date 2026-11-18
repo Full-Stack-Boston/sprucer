@@ -20,7 +20,10 @@ Sprucer does **not** invent employers, dates, degrees, or metrics. Generations s
 
 ```bash
 cp .env.example .env
-# set SPRUCER_DEV_PASSWORD and SPRUCER_SESSION_SECRET to unique values
+# Lab: pull real values from Vaultwarden handles (never commit .env):
+#   bash scripts/sync-local-secrets-from-vault.sh
+# Or set SPRUCER_DEV_PASSWORD and SPRUCER_SESSION_SECRET yourself.
+unset SPRUCER_DEV_PASSWORD SPRUCER_SESSION_SECRET  # so Compose reads .env, not a shell export
 docker compose up --build
 ```
 
