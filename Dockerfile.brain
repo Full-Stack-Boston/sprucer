@@ -5,8 +5,11 @@ RUN useradd -m -u 1000 sprucer
 COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
 COPY fixtures ./fixtures
-RUN pip install --no-cache-dir . && chown -R sprucer:sprucer /app
-USER sprucer
+COPY scripts/docker-entrypoint-brain.sh /entrypoint.sh
+RUN pip install --no-cache-dir . \
+  && mkdir -p /data \
+  && chown -R sprucer:sprucer /app /data \
+  && chmod +x /entrypoint.sh
 
 ENV SPRUCER_HOST=0.0.0.0
 ENV SPRUCER_PORT=8787
@@ -15,4 +18,7 @@ ENV SPRUCER_DATABASE_URL=sqlite:////data/sprucer.db
 ENV SPRUCER_ALLOW_INSECURE_DEV=1
 
 EXPOSE 8787
+# Start as root only long enough to chown the mounted /data volume, then drop to sprucer.
+USER root
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["sprucer-brain"]

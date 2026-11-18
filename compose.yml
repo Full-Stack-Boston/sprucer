@@ -14,7 +14,9 @@ services:
       context: .
       dockerfile: Dockerfile.brain
     ports:
-      - "8787:8787"
+      # Host publish only; default 8787. On fsb-01 set SPRUCER_BRAIN_HOST_PORT=8789
+      # so Mail Janitor can keep :8787.
+      - "${SPRUCER_BRAIN_HOST_PORT:-8787}:8787"
     environment:
       SPRUCER_HOST: "0.0.0.0"
       SPRUCER_PORT: "8787"
