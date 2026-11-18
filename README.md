@@ -8,13 +8,13 @@ Sprucer does **not** invent employers, dates, degrees, or metrics. Generations s
 
 ## Features
 
-- **Knowledge bank** — structured career truth (experience, projects, metrics, blurbs, signature stories, never-claim) plus profile, voice prefs, and accepted career-fit
-- **Career-fit interview** — confirm or inquire, then draft ranked industries + titles (live LLM / BYOK); accept into `careerFit` (see [docs/FIT_INTERVIEW.md](docs/FIT_INTERVIEW.md))
-- **JD ingest** — paste, URL fetch (SSRF-guarded, with Workday CXS JSON + HTML hero/`job-description` extraction and company/title/location hints), or upload (`.txt`/`.md`/`.html`/`.pdf`/`.docx`/`.doc`)
-- **Generate** — cover letter, resume sections, email, interview prep, LinkedIn, custom types — grounded in your vault
-- **Application tracker** — per-job status, notes, generation history
-- **Document review** — draft → approve preview flow
-- **Themes** — light / neutral / dark (topbar select)
+- **Knowledge bank:** structured career truth (experience, projects, metrics, blurbs, signature stories, never-claim) plus profile, voice prefs, and accepted career-fit
+- **Career-fit interview:** confirm or inquire, then draft ranked industries + titles (live LLM / BYOK); accept into `careerFit` (see [docs/FIT_INTERVIEW.md](docs/FIT_INTERVIEW.md))
+- **JD ingest:** paste, URL fetch (SSRF-guarded, with Workday CXS JSON + HTML hero/`job-description` extraction and company/title/location hints), or upload (`.txt`/`.md`/`.html`/`.pdf`/`.docx`/`.doc`)
+- **Generate:** cover letter, resume sections, email, interview prep, LinkedIn, custom types, grounded in your vault
+- **Application tracker:** per-job status, notes, generation history
+- **Document review:** draft → approve preview flow
+- **Themes:** light / neutral / dark (topbar select)
 
 ## Quick start (Docker)
 
@@ -24,7 +24,7 @@ cp .env.example .env
 docker compose up --build
 ```
 
-Open http://127.0.0.1:3737 — log in with `SPRUCER_DEV_PASSWORD`.
+Open http://127.0.0.1:3737. Log in with `SPRUCER_DEV_PASSWORD`.
 
 More recipes (Postgres, OIDC, Authentik-oriented) live under [`deploy/`](deploy/README.md). Compose files include inline `#` comments.
 
@@ -36,8 +36,8 @@ docker compose -f deploy/compose.demo.yml up --build
 
 Open http://127.0.0.1:3737. A start gate asks each visitor how they want to try Sprucer, then unlocks the full workflow:
 
-- **Explore the demo (offline).** Drafts are written by a built-in generator grounded in the vault — no LLM provider, no API keys, no cost, and nothing leaves the containers. Outbound job-URL ingest is disabled (paste/upload only).
-- **Bring your own AI.** With `SPRUCER_BYOK_ENABLED=1`, the gate prompts for ephemeral OpenAI-compatible credentials and unlocks real generation. The key stays in the browser and is proxied per request — never stored server-side, and validated against SSRF (public https only, optional host allowlist). See [`deploy/env.demo.example`](deploy/env.demo.example).
+- **Explore the demo (offline).** Drafts are written by a built-in generator grounded in the vault. No LLM provider, no API keys, no cost, and nothing leaves the containers. Outbound job-URL ingest is disabled (paste/upload only).
+- **Bring your own AI.** With `SPRUCER_BYOK_ENABLED=1`, the gate prompts for ephemeral OpenAI-compatible credentials and unlocks real generation. The key stays in the browser and is proxied per request, never stored server-side, and validated against SSRF (public https only, optional host allowlist). See [`deploy/env.demo.example`](deploy/env.demo.example).
 - **Per-visitor sandbox.** Each browser gets its own temporary, isolated vault, auto-seeded with a sample knowledge bank + application and auto-expired after `SPRUCER_DEMO_TTL_HOURS`. The SQLite file lives on tmpfs, so a restart is a clean slate. A status strip shows the active backend and lets visitors change setup.
 
 ## Quick start (local Python + Next)
@@ -48,7 +48,7 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 cp .env.example .env
 
-# API (SQLite default) — binds SPRUCER_HOST from .env (default 127.0.0.1)
+# API (SQLite default). Binds SPRUCER_HOST from .env (default 127.0.0.1)
 sprucer-brain
 
 # In another shell: web UI
@@ -70,7 +70,7 @@ Optional helper that starts mock LLM + brain + web if they are not already runni
 | `SPRUCER_DATABASE_URL` | Default `sqlite:///./data/sprucer.db`. Postgres: `postgresql+psycopg://user:pass@host/db` |
 | `SPRUCER_AUTH_MODE` | `dev` (local only) \| `none` \| `oidc` \| `api_key` \| `demo` |
 | `SPRUCER_DEV_PASSWORD` | Shared password when `auth_mode=dev` |
-| `SPRUCER_SESSION_SECRET` | HMAC secret for session cookies — **change this** |
+| `SPRUCER_SESSION_SECRET` | HMAC secret for session cookies. **Change this.** |
 | `SPRUCER_ALLOW_INSECURE_DEV` | `1` to allow `dev`/`none` while binding `0.0.0.0` (lab/Docker only) |
 | `SPRUCER_COOKIE_SECURE` | `1` to set the Secure flag (HTTPS) |
 | `SPRUCER_DOCS_ENABLED` | `0` to disable `/docs` and `/redoc` |
@@ -121,4 +121,4 @@ Public alpha toward v0. Local Docker and lab installs are the supported paths. D
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

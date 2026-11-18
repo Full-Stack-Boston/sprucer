@@ -9,7 +9,7 @@ export default function HomePage() {
         <h1>Write applications you can defend.</h1>
         <p>
           Keep a knowledge bank of facts you will stand behind. Ingest a job description.
-          Draft cover letters and notes through any OpenAI-compatible model — grounded only
+          Draft cover letters and notes through any OpenAI-compatible model, grounded only
           in that truth. Nothing leaves as final until you approve it.
         </p>
         <div className="actions">

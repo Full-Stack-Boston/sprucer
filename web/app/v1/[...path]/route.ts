@@ -114,7 +114,7 @@ async function proxy(req: NextRequest, pathParts: string[]) {
     return NextResponse.json(
       {
         detail: timedOut
-          ? "Generate timed out waiting for the model (web proxy wait limit). All-type runs on a slow local LLM can take well over 10 minutes — try again, use fewer artifact types, or a faster model."
+          ? "Generate timed out waiting for the model (web proxy wait limit). All-type runs on a slow local LLM can take well over 10 minutes. Try again, use fewer artifact types, or a faster model."
           : `Brain proxy failed: ${msg}`,
       },
       { status: timedOut ? 504 : 502 },

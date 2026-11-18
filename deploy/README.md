@@ -11,7 +11,7 @@
 | [`env.oidc.example`](env.oidc.example) | Env template for OIDC compose |
 | [`env.authentik.example`](env.authentik.example) | Env template for Authentik-oriented compose |
 
-All compose files are heavily commented — YAML `#` comments are intentional documentation.
+All compose files are heavily commented. YAML `#` comments are intentional documentation.
 
 ## Dockge
 

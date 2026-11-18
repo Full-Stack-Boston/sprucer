@@ -25,7 +25,7 @@ def validate_runtime_settings(settings: Settings) -> list[str]:
 
     if settings.session_secret == DEFAULT_SESSION_SECRET:
         warnings_out.append(
-            "SPRUCER_SESSION_SECRET is still the example default — set a long random value."
+            "SPRUCER_SESSION_SECRET is still the example default. Set a long random value."
         )
 
     if mode == "demo":

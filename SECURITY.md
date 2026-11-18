@@ -9,7 +9,7 @@ Sprucer is alpha (`0.1.x`). Security fixes land on `main`.
 - **Intended:** single-operator career desk or small authenticated deployments; drafts until you approve; local Docker or private network.
 - **Not intended (yet):** public anonymous generate APIs, or treating `auth_mode=none` as multi-user safety.
 - **Tenancy:** with auth enabled (`dev` / `oidc` / `api_key`), truth and applications are scoped per identity. With `auth_mode=none`, the deploy uses one shared vault. `auth_mode=demo` gives each browser session its own anonymous, ephemeral vault.
-- **Demo mode:** `SPRUCER_DEMO=1` is designed to be publicly reachable. It runs a fully offline generator (no external LLM, no cost), disables outbound URL ingest, mints a random per-session vault, and sweeps stale sessions after `SPRUCER_DEMO_TTL_HOURS`. Treat demo vaults as throwaway — do not put real personal data in a demo.
+- **Demo mode:** `SPRUCER_DEMO=1` is designed to be publicly reachable. It runs a fully offline generator (no external LLM, no cost), disables outbound URL ingest, mints a random per-session vault, and sweeps stale sessions after `SPRUCER_DEMO_TTL_HOURS`. Treat demo vaults as throwaway. Do not put real personal data in a demo.
 
 ## Hardening already in place
 
@@ -28,7 +28,7 @@ Email security concerns to the maintainers via the GitHub security advisory flow
 ## Operator checklist before exposure
 
 1. Set unique `SPRUCER_SESSION_SECRET` and never keep example defaults
-2. Use `SPRUCER_AUTH_MODE=oidc` (or `api_key`) — not `dev` — off your laptop
+2. Use `SPRUCER_AUTH_MODE=oidc` (or `api_key`), not `dev`, off your laptop
 3. Terminate TLS; set `SPRUCER_COOKIE_SECURE=1`
 4. Restrict `SPRUCER_CORS_ORIGINS`
 5. Point `SPRUCER_LLM_*` at a trusted endpoint; treat job-description text as untrusted input to the model

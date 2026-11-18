@@ -121,7 +121,7 @@ export function DemoGate() {
               <h2>Explore the demo</h2>
               <p>
                 Use the built-in offline generator. Full walkthrough of the workflow with simulated,
-                grounded drafts — no account, no API key, no cost.
+                grounded drafts. No account, no API key, no cost.
               </p>
               <span className="demo-gate-cta">Start the demo →</span>
             </button>
@@ -140,7 +140,7 @@ export function DemoGate() {
                 <h2>Bring your own AI</h2>
                 <p>
                   Connect your own OpenAI-compatible provider for real model output. Your key stays
-                  in this browser and is sent only with generate requests — never stored on our
+                  in this browser and is sent only with generate requests, never stored on our
                   server.
                 </p>
                 <span className="demo-gate-cta">Connect a provider →</span>

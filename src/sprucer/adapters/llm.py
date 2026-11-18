@@ -129,7 +129,7 @@ class MockLlm:
                 return json.dumps(
                     {
                         "assistantMessage": (
-                            "Thanks — that helps. What work style fits you best "
+                            "Thanks. That helps. What work style fits you best "
                             "(deep focus vs frequent collaboration), and any geo or remote limits?"
                             if not ready
                             else "I have enough to draft ranked industries and titles. "
@@ -207,16 +207,16 @@ class MockLlm:
                     "3. How do you handle operational ownership?\n"
                     f"   - Answer with: Ground the answer in a real role or project. Cite: `{c2}`\n"
                     "### Refresh from your knowledge bank\n"
-                    f"- `{c0}` — vault item\n"
-                    f"- `{c1}` — vault item\n"
-                    f"- `{c2}` — vault item\n"
+                    f"- `{c0}`: vault item\n"
+                    f"- `{c1}`: vault item\n"
+                    f"- `{c2}`: vault item\n"
                     "### Watch-outs\n"
                     "- Never invent unverified percentage metrics\n"
                 )
             elif t == "linkedin":
                 sections.append(
                     "## LinkedIn DM\n\n"
-                    "Hi team — I build client platforms end to end and saw your role. "
+                    "Hi team. I build client platforms end to end and saw your role. "
                     "Would you be open to a short chat about fit?\n\n"
                     "Jonaldo\n"
                 )
@@ -361,16 +361,16 @@ class DemoLlm:
                         f"Cite: `{cid}`"
                     )
                 lines.append("### Refresh from your knowledge bank")
-                lines.append(f"- `{c0}` — review before the interview")
-                lines.append(f"- `{c1}` — review before the interview")
-                lines.append(f"- `{c2}` — review before the interview")
+                lines.append(f"- `{c0}`: review before the interview")
+                lines.append(f"- `{c1}`: review before the interview")
+                lines.append(f"- `{c2}`: review before the interview")
                 lines.append("### Watch-outs")
                 lines.append("- Never claim metrics, tools, or tenure absent from the knowledge bank")
                 sections.append("\n".join(lines) + "\n")
             elif t == "linkedin":
                 sections.append(
                     "## LinkedIn DM\n\n"
-                    f"Hi {company} team — I am exploring the {title} role and think there is a strong "
+                    f"Hi {company} team. I am exploring the {title} role and think there is a strong "
                     f"fit. {fact0}. Would you be open to a short chat about the team and how I could "
                     f"help? Thanks, {short}\n"
                 )
@@ -378,7 +378,7 @@ class DemoLlm:
                 label = t.replace("custom:", "").replace("-", " ").title()
                 sections.append(
                     f"## {label}\n\n"
-                    f"Grounded {label} draft for {company} — {title}. {fact0}.\n"
+                    f"Grounded {label} draft for {company}: {title}. {fact0}.\n"
                 )
         return "\n".join(sections)
 

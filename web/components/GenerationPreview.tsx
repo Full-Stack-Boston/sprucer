@@ -147,7 +147,7 @@ export function GenerationPreview({
         ) : null}
         {missing.length ? (
           <p className="gen-preview-warn">
-            This draft is incomplete — missing: {missing.join(", ")}.
+            This draft is incomplete. Missing: {missing.join(", ")}.
           </p>
         ) : null}
       </header>

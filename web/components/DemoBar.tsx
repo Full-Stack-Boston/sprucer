@@ -49,7 +49,7 @@ export function DemoBar() {
             </>
           ) : (
             <>
-              Simulated drafts from the built-in offline generator — no external calls or cost.
+              Simulated drafts from the built-in offline generator. No external calls or cost.
               Temporary, session-isolated vault.
             </>
           )}

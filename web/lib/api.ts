@@ -59,7 +59,7 @@ export async function apiFetch(path: string, init: RequestInit = {}) {
     throw new Error(
       `Non-JSON response from API (${res.status})${snippet ? `: ${snippet}` : ""}. ` +
         (res.status >= 500
-          ? "The web proxy or brain may have timed out — try Generate again."
+          ? "The web proxy or brain may have timed out. Try Generate again."
           : "Check that the Sprucer brain is running."),
     );
   }

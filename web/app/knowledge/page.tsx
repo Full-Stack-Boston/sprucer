@@ -259,14 +259,14 @@ function KnowledgeDesk() {
             {(truth?.careerFit?.industries || []).map((i) => (
               <li key={`ind-${i.rank}-${i.name}`}>
                 Industry #{i.rank}: {i.name}
-                {i.rationale ? ` — ${i.rationale}` : ""}
+                {i.rationale ? `: ${i.rationale}` : ""}
               </li>
             ))}
             {(truth?.careerFit?.titles || []).map((t) => (
               <li key={`title-${t.rank}-${t.name}`}>
                 Title #{t.rank}: {t.name}
                 {t.industry ? ` (${t.industry})` : ""}
-                {t.rationale ? ` — ${t.rationale}` : ""}
+                {t.rationale ? `: ${t.rationale}` : ""}
               </li>
             ))}
           </ul>
@@ -385,7 +385,7 @@ function KnowledgeDesk() {
           {(truth?.experience || []).length ? (
             <ul className="list truth-list">
               {(truth?.experience || []).map((exp, idx) => {
-                const label = `${exp.org || "Role"} — ${exp.role || ""}`.trim();
+                const label = `${exp.org || "Role"}: ${exp.role || ""}`.trim();
                 return (
                   <li className="row-card truth-row" key={exp.id || `${exp.org}-${idx}`}>
                     <div className="row-card-main">

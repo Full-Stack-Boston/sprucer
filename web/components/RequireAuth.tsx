@@ -88,7 +88,7 @@ export function RequireAuth({ children, pageLabel }: Props) {
           <div className="eyebrow">Sign in required</div>
           <h1>You need to log in</h1>
           <p>
-            {pageLabel} is locked until you authenticate. Sign in to open your vault — without a
+            {pageLabel} is locked until you authenticate. Sign in to open your vault. Without a
             session, nothing here can load or change.
           </p>
         </section>

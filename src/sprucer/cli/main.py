@@ -11,7 +11,7 @@ from rich import print as rprint
 from sprucer.adapters.filesystem_import import import_filesystem_vault
 from sprucer.adapters.storage import create_storage
 
-app = typer.Typer(help="Sprucer CLI — thin client for the Sprucer brain API.", no_args_is_help=True)
+app = typer.Typer(help="Sprucer CLI: thin client for the Sprucer brain API.", no_args_is_help=True)
 
 
 def _client(base_url: str, password: str | None, api_key: str | None) -> httpx.Client:

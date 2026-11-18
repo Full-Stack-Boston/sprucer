@@ -1,5 +1,5 @@
 Senior Platform Engineer
-Acme Cloud — Remote (US)
+Acme Cloud: Remote (US)
 
 Acme Cloud builds observability tooling for mid-size SaaS teams. We are hiring a Senior Platform Engineer to own CI/CD, developer experience, and reliability for our control plane.
 

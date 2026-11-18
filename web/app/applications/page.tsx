@@ -47,7 +47,7 @@ const GENERATE_TIPS = [
   "Grounding the draft in your Knowledge bank facts…",
   "Matching strengths to this job description…",
   "Outlining the sections you asked for…",
-  "Local models can take a while — still working…",
+  "Local models can take a while. Still working…",
   "Writing sendable copy from facts you can defend…",
   "Checking claims against your truth bank…",
   "Shaping tone so it sounds like you, not generic AI…",
@@ -73,7 +73,7 @@ const GENERATE_TIPS = [
 ];
 
 /** Always shown once generate is ready to finish, then the wait ends. */
-const GENERATE_TIP_FINAL = "Finishing up — your draft will appear here when ready…";
+const GENERATE_TIP_FINAL = "Finishing up. Your draft will appear here when ready…";
 
 const TIP_ROTATE_MS = 14_000;
 const TIP_FINAL_HOLD_MS = 1_400;
@@ -264,7 +264,7 @@ function ApplicationsDesk() {
   }
 
   async function deleteApp(item: AppRow) {
-    const label = `${item.company || "Company"} — ${item.title || "Role"}`;
+    const label = `${item.company || "Company"}: ${item.title || "Role"}`;
     if (!window.confirm(`Remove application "${label}"? This deletes its JD and all generations.`)) {
       return;
     }
@@ -482,7 +482,7 @@ function ApplicationsDesk() {
                 onClick={() => loadDetail(item.id).catch((err) => setError(String(err)))}
               >
                 <strong>
-                  {item.company || "Company"} — {item.title || "Role"}
+                  {item.company || "Company"}: {item.title || "Role"}
                 </strong>
                 <span className="muted">
                   <span className="status">{item.status || "draft"}</span> · {item.id}
@@ -555,7 +555,7 @@ function ApplicationsDesk() {
             required
           />
           <p className="muted" style={{ margin: 0 }}>
-            Some boards block automated fetches — if that happens, paste the text or upload a
+            Some boards block automated fetches. If that happens, paste the text or upload a
             saved page instead.
           </p>
         </div>
@@ -622,7 +622,7 @@ function ApplicationsDesk() {
               <div>
                 <strong>Add or choose an application</strong>
                 <span>
-                  Paste a JD, fetch a URL, or upload a file — or click an existing row. Clear or
+                  Paste a JD, fetch a URL, or upload a file, or click an existing row. Clear or
                   switch later from here.
                 </span>
               </div>
@@ -647,7 +647,7 @@ function ApplicationsDesk() {
           {hasSelection ? (
             <>
               <p className="panel-lead">
-                Working on <strong>{selected?.company || "Company"}</strong> —{" "}
+                Working on <strong>{selected?.company || "Company"}</strong>:{" "}
                 {selected?.title || "Role"}. Draft tools are in step 2 below. Use the buttons here
                 to switch, clear, or start a new application.
               </p>
@@ -694,11 +694,11 @@ function ApplicationsDesk() {
 
               {hasApps ? (
                 <>
-                  <p className="panel-lead">Existing applications — click one to continue:</p>
+                  <p className="panel-lead">Existing applications. Click one to continue:</p>
                   {renderAppList({})}
                 </>
               ) : (
-                <div className="empty-hint">No applications yet — the form above is your start.</div>
+                <div className="empty-hint">No applications yet. The form above is your start.</div>
               )}
             </>
           )}
@@ -869,7 +869,7 @@ function ApplicationsDesk() {
                 </div>
                 <p className="panel-lead">
                   Each draft block can be copied on its own. Emphasis and grounding notes stay
-                  collapsed — they are not part of what you send.
+                  collapsed. They are not part of what you send.
                 </p>
                 <GenerationPreview
                   content={preview}

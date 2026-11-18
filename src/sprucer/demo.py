@@ -126,7 +126,7 @@ DEMO_TRUTH: dict[str, Any] = {
 
 DEMO_JD = (
     "Senior Platform Engineer\n"
-    "Acme Cloud — Remote (US)\n\n"
+    "Acme Cloud: Remote (US)\n\n"
     "Acme Cloud builds observability tooling for mid-size SaaS teams. We are hiring a Senior "
     "Platform Engineer to own CI/CD, developer experience, and reliability for our control plane.\n\n"
     "Responsibilities:\n"

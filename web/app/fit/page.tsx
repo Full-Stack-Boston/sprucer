@@ -135,7 +135,7 @@ function FitDesk() {
           AI-guided interview that confirms or learns your interests and constraints, then drafts
           ranked industries and titles. Nothing is written to your vault until you accept. Real job
           postings stay on{" "}
-          <Link href="/applications">Applications</Link> via SSRF-guarded ingest — this flow never
+          <Link href="/applications">Applications</Link> via SSRF-guarded ingest. This flow never
           invents employers.
         </p>
       </header>
@@ -161,7 +161,7 @@ function FitDesk() {
           <p className="panel-lead">
             If your vault already has careerFit or a roleSpectrum summary, Sprucer will ask you to
             confirm first. Otherwise it inquires thoroughly. Needs a live LLM (lab{" "}
-            <code>SPRUCER_LLM_*</code> or demo BYOK) — not the offline demo generator.
+            <code>SPRUCER_LLM_*</code> or demo BYOK), not the offline demo generator.
           </p>
           <button type="button" className="btn" disabled={busy} onClick={() => void startInterview()}>
             {busy ? "Starting…" : "Start career-fit interview"}
